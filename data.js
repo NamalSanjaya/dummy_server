@@ -31,7 +31,27 @@ const agreementsIds = [
     5, 8, 12, 16
 ]
 
+const cities = [
+  {
+    "CITY_NAME": "MALABE",
+    "POSTAL_CODE": 10115
+  },
+  {
+    "CITY_NAME": "COLOMBO 10",
+    "POSTAL_CODE": 10102
+  },
+  {
+    "CITY_NAME": "GALLE",
+    "POSTAL_CODE": 11990
+  },
+  {
+    "CITY_NAME": "KANDY",
+    "POSTAL_CODE": 109831
+  }
+]
+
 module.exports = {
     activeSites,
-    agreementsIds
+    agreementsIds,
+    cities
 };

@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const { activeSites, agreementsIds } = require("./data")
+const { activeSites, agreementsIds, cities } = require("./data")
 
 /**
  * List Active Sites
@@ -19,7 +19,12 @@ app.get('/agreements/:id', (req, res) => {
         return
     }
 
-    res.send(agreementsIds)
+    res.send({data: agreementsIds})
+});
+
+// List cities
+app.get('/cities', (req, res) => {
+    res.send({data: cities});
 });
 
 // Start the server
