@@ -63,7 +63,7 @@ app.post('/comm-terms', (req, res) => {
 
 // List Active Sites
 app.get('/active-sites', (req, res) => {
-    res.send(activeSites);
+    res.send({data: activeSites});
 });
 
 // Get agreements for a site id
