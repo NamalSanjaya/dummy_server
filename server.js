@@ -61,13 +61,8 @@ app.post('/comm-terms', (req, res) => {
     res.send({msg: "ok", resource: "Commerial Terms"});
 });
 
-// List Active Sites
-app.get('/active-sites', (req, res) => {
-    res.send({data: activeSites});
-});
-
-// Get agreements for a site id
-app.get('/agreements/:id', (req, res) => {
+// Get agreements ids for a site id
+app.get('/sites/:id/agreements/ids', (req, res) => {
     // no
     if(req.params.id === "NS001") {
         res.send({data: []});
@@ -76,6 +71,12 @@ app.get('/agreements/:id', (req, res) => {
 
     res.send({data: agreementsIds})
 });
+
+// List Active Sites
+app.get('/sites/active', (req, res) => {
+    res.send({data: activeSites});
+});
+
 
 // List cities
 app.get('/cities', (req, res) => {
