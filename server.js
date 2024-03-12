@@ -70,7 +70,7 @@ app.get('/active-sites', (req, res) => {
 app.get('/agreements/:id', (req, res) => {
     // no
     if(req.params.id === "NS001") {
-        res.send([]);
+        res.send({data: []});
         return
     }
 
