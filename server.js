@@ -12,6 +12,7 @@ const commTermsDb = []
 
 // Dummy Automatic increment IDs
 let agreementIdNo = 1
+let landOwnerNo = 1
 
 // Agreements
 app.get('/agreements/:id', (req, res) => {
@@ -30,13 +31,17 @@ app.post('/agreements', (req, res) => {
 
 // Land Owner Resource
 app.get('/landOwners/:id', (req, res) => {
-    res.send({data: landOwnerDb[0], msg: "Ok"});
+    const ownerId = parseInt(req?.params?.id, 10)
+    const ownerInfo = landOwnerDb.find( owner => owner.OWNER_ID === ownerId ) || {}
+    res.send({data: ownerInfo, msg: "Ok"});
 });
 
 app.post('/landOwners', (req, res) => {
-    const owner = req.body || {};
-    landOwnerDb.push(owner)
-    res.send({msg: "ok", resource: "Land Owner"});
+    let ownerRecord = req.body || {};
+    ownerRecord.OWNER_ID = landOwnerNo
+    landOwnerNo++
+    landOwnerDb.push(ownerRecord)
+    res.send({msg: "ok", data: { id: landOwnerNo-1}});
 });
 
 // Payee Resource
