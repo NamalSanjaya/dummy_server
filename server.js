@@ -13,6 +13,7 @@ const commTermsDb = []
 // Dummy Automatic increment IDs
 let agreementIdNo = 1
 let landOwnerNo = 1
+let payeeNo = 1
 
 // Agreements
 app.get('/agreements/:id', (req, res) => {
@@ -26,7 +27,7 @@ app.post('/agreements', (req, res) => {
     agr.AGREEMENT_ID = agreementIdNo
     agreementIdNo++
     agreementDb.push(agr)
-    res.send({msg: "ok", data: { id: agreementIdNo-1}});
+    res.send({msg: "ok", data: { id: agr.AGREEMENT_ID }});
 });
 
 // Land Owner Resource
@@ -41,18 +42,22 @@ app.post('/landOwners', (req, res) => {
     ownerRecord.OWNER_ID = landOwnerNo
     landOwnerNo++
     landOwnerDb.push(ownerRecord)
-    res.send({msg: "ok", data: { id: landOwnerNo-1}});
+    res.send({msg: "ok", data: { id: ownerRecord.OWNER_ID }});
 });
 
 // Payee Resource
 app.get('/payees/:id', (req, res) => {
-    res.send({data: payeeDb[0], msg: "Ok"});
+    const payeeId = parseInt(req?.params?.id, 10)
+    const payeeInfo = payeeDb.find( payee => payee.PAYEE_ID === payeeId ) || {}
+    res.send({data: payeeInfo, msg: "ok" });
 });
 
 app.post('/payees', (req, res) => {
     const payee = req.body || {};
+    payee.PAYEE_ID = payeeNo
+    payeeNo++
     payeeDb.push(payee)
-    res.send({msg: "ok", resource: "Payee"});
+    res.send({msg: "ok", data: { id: payee.PAYEE_ID } });
 });
 
 // Commerial Terms Resource
