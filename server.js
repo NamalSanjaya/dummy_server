@@ -14,6 +14,7 @@ const commTermsDb = []
 let agreementIdNo = 1
 let landOwnerNo = 1
 let payeeNo = 1
+let commeTermsNo = 1
 
 // Agreements
 app.get('/agreements/:id', (req, res) => {
@@ -62,13 +63,16 @@ app.post('/payees', (req, res) => {
 
 // Commerial Terms Resource
 app.get('/comm-terms/:id', (req, res) => {
-    res.send({data: commTermsDb[0], msg: "Ok"});
+    const agreementId = parseInt(req?.params?.id, 10)
+    const commTermInfo = commTermsDb.find( commTerm => commTerm.AGREEMENT_ID === agreementId ) || {}
+    res.send({data: commTermInfo, msg: "ok" });
 });
 
 app.post('/comm-terms', (req, res) => {
-    const commTerms = req.body || {};
-    commTermsDb.push(commTerms)
-    res.send({msg: "ok", resource: "Commerial Terms"});
+    const commTerm = req.body || {};
+    commeTermsNo++
+    commTermsDb.push(commTerm)
+    res.send({msg: "ok", data: { id: commeTermsNo-1 } });
 });
 
 // Get agreements ids for a site id
