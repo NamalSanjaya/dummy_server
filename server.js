@@ -9,12 +9,28 @@ const agreementDb = []
 const landOwnerDb = []
 const payeeDb = []
 const commTermsDb = []
+const siteReqDb = []
 
 // Dummy Automatic increment IDs
 let agreementIdNo = 1
 let landOwnerNo = 1
 let payeeNo = 1
 let commeTermsNo = 1
+let siteReqNo = 1
+
+// Site req
+app.get('/site-req/:siteId', (req, res) => {
+    const siteId = req?.params?.siteId
+    const siteReqInfo = siteReqDb.find( site => site.SITE_ID === siteId ) || {}
+    res.send({data: siteReqInfo, msg: "Ok"});
+});
+
+app.post('/site-req', (req, res) => {
+    let siteBody = req.body || {};
+    siteReqNo++
+    siteReqDb.push(siteBody)
+    res.send({msg: "ok", data: { id: siteReqNo-1 }});
+});
 
 // Agreements
 app.get('/agreements/:id', (req, res) => {
