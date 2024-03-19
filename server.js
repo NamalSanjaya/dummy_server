@@ -39,6 +39,29 @@ app.get('/agreements/:id', (req, res) => {
     res.send({data: agreement, msg: "Ok"});
 });
 
+app.put('/agreements/:id', (req, res) => {
+    let reqBody = req.body || {};
+    const agrId = parseInt(req?.params?.id, 10)
+    let agreement = {}
+    let matchedIndex = -1
+    let count = 0
+
+    for(const each of agreementDb) {
+        if(each.AGREEMENT_ID === agrId ){
+            agreement = each
+            matchedIndex = count
+        }
+        count++
+    }
+    if(matchedIndex === -1) {
+        res.status(404).send({data: {}, msg: "agreement not found"});
+        return
+    }
+    let newAgreement = { ...agreement, ...reqBody }
+    agreementDb[matchedIndex] = newAgreement
+    res.send({data: newAgreement, msg: "Ok"});
+});
+
 app.post('/agreements', (req, res) => {
     let agr = req.body || {};
     agr.AGREEMENT_ID = agreementIdNo
