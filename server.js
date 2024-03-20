@@ -33,15 +33,18 @@ app.post('/site-req', (req, res) => {
 });
 
 // Agreements
+app.get('/agreements/sites/:siteId', (req, res) => {
+    const siteId = req?.params?.siteId || ""
+    const result = agreementDb.filter( agr => agr.SITE_ID === siteId)
+    res.send({data: result, msg: "Ok"});
+});
+
 app.get('/agreements/:id', (req, res) => {
     const agrId = parseInt(req?.params?.id, 10)
     const agreement = agreementDb.find( agr => agr.AGREEMENT_ID === agrId ) || {}
     res.send({data: agreement, msg: "Ok"});
 });
 
-app.get('/agreements', (req, res) => {
-    res.send({data: agreementDb, msg: "Ok"});
-});
 
 app.put('/agreements/:id', (req, res) => {
     let reqBody = req.body || {};
