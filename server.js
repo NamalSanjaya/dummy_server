@@ -142,6 +142,12 @@ app.get('/cities', (req, res) => {
     res.send({data: cities});
 });
 
+app.get('/cities/:cityId', (req, res) => {
+    const id = req?.params?.cityId
+    const info = cities.find( city => city.CITY_NAME === id) || {}
+    res.send({ data: info, msg: "ok" });
+});
+
 // Start the server
 const port = 8000;
 app.listen(port, () => {
