@@ -118,7 +118,7 @@ const agreementDb = [
       "EXTERNAL_LAWYER_NAME": "Alice Johnson"
   },
     {
-        "AGREEMENT_ID": "ag004",
+        "AGREEMENT_ID": 4,
         "DOCUMENT_ID": 4,
         "SITE_ID": "s005",
         "OWNERSHIP": "Private",
@@ -140,7 +140,7 @@ const agreementDb = [
         "EXTERNAL_LAWYER_NAME": "Bob Smith"
     },
     {
-        "AGREEMENT_ID": "ag005",
+        "AGREEMENT_ID": 5,
         "DOCUMENT_ID": 5,
         "SITE_ID": "s002",
         "OWNERSHIP": "Government",
@@ -162,7 +162,7 @@ const agreementDb = [
         "EXTERNAL_LAWYER_NAME": "Emily Johnson"
     },
     {
-        "AGREEMENT_ID": "ag006",
+        "AGREEMENT_ID": 6,
         "DOCUMENT_ID": 6,
         "SITE_ID": "s007",
         "OWNERSHIP": "Private | Goverment",
@@ -184,7 +184,7 @@ const agreementDb = [
         "EXTERNAL_LAWYER_NAME": "David Doe"
     },
     {
-        "AGREEMENT_ID": "ag007",
+        "AGREEMENT_ID": 7,
         "DOCUMENT_ID": 7,
         "SITE_ID": "s002",
         "OWNERSHIP": "Government",
@@ -208,10 +208,117 @@ const agreementDb = [
 
 ]
 
+const siteReqDb = [
+  {
+    "SITE_ID": "s001",
+    "RELATED_COMPANY": "DBN",
+    "OTHER_OPERATOR": "Mobitel",
+    "TITLE_TYPE": "TR",
+    "ADDRESS_LINE_1": "123 Main St",
+    "ADDRESS_LINE_2": "Apt 1",
+    "GN_DEVISION": "Colombo",
+    "DEVISIONAL_SECRETARY": "John Doe",
+    "LOCAL_AUTHORITY_AREA": "Colombo Municipal Council",
+    "POLICE_STATION": "Pettah",
+    "TOWER_HEIGHT": 50.5,
+    "OIC_NAME": "Alice Smith",
+    "OIC_CONTACT": "+98112233445",
+    "TOWER_TYPE": "GBT",
+    "CITY_ID": "MALABE"
+  },
+  {
+    "SITE_ID": "s002",
+    "RELATED_COMPANY": "DAP",
+    "OTHER_OPERATOR": "Hutch",
+    "TITLE_TYPE": "TD",
+    "ADDRESS_LINE_1": "456 Oak St",
+    "ADDRESS_LINE_2": "Suite 100",
+    "GN_DEVISION": "Galle",
+    "DEVISIONAL_SECRETARY": "Jane Doe",
+    "LOCAL_AUTHORITY_AREA": "Galle Municipal Council",
+    "POLICE_STATION": "Fort",
+    "TOWER_HEIGHT": 45.2,
+    "OIC_NAME": "Bob Johnson",
+    "OIC_CONTACT": "+98112233446",
+    "TOWER_TYPE": "RTP",
+    "CITY_ID": "GALLE"
+  },
+  {
+    "SITE_ID": "s003",
+    "RELATED_COMPANY": "Other",
+    "OTHER_OPERATOR": "SLT",
+    "TITLE_TYPE": "TR",
+    "ADDRESS_LINE_1": "789 Elm St",
+    "ADDRESS_LINE_2": "Unit 5",
+    "GN_DEVISION": "Kandy",
+    "DEVISIONAL_SECRETARY": "Sam Smith",
+    "LOCAL_AUTHORITY_AREA": "Kandy Municipal Council",
+    "POLICE_STATION": "Kandy",
+    "TOWER_HEIGHT": 60.0,
+    "OIC_NAME": "Emily Brown",
+    "OIC_CONTACT": "+98112233447",
+    "TOWER_TYPE": "RTMP",
+    "CITY_ID": "KANDY"
+  },
+  {
+    "SITE_ID": "s004",
+    "RELATED_COMPANY": "DBN",
+    "OTHER_OPERATOR": "N/A",
+    "TITLE_TYPE": "TD",
+    "ADDRESS_LINE_1": "101 Pine St",
+    "ADDRESS_LINE_2": "Apt 2B",
+    "GN_DEVISION": "Colombo",
+    "DEVISIONAL_SECRETARY": "Sarah Lee",
+    "LOCAL_AUTHORITY_AREA": "Colombo Municipal Council",
+    "POLICE_STATION": "Kollupitiya",
+    "TOWER_HEIGHT": 55.8,
+    "OIC_NAME": "Michael Johnson",
+    "OIC_CONTACT": "+98112233448",
+    "TOWER_TYPE": "RTT",
+    "CITY_ID": "COLOMBO 10"
+  },
+  {
+    "SITE_ID": "s005",
+    "RELATED_COMPANY": "DAP",
+    "OTHER_OPERATOR": "Mobitel",
+    "TITLE_TYPE": "TR",
+    "ADDRESS_LINE_1": "234 Cedar St",
+    "ADDRESS_LINE_2": "Unit 10",
+    "GN_DEVISION": "Galle",
+    "DEVISIONAL_SECRETARY": "David Lee",
+    "LOCAL_AUTHORITY_AREA": "Galle Municipal Council",
+    "POLICE_STATION": "Matara",
+    "TOWER_HEIGHT": 48.3,
+    "OIC_NAME": "Jessica Taylor",
+    "OIC_CONTACT": "+98112233449",
+    "TOWER_TYPE": "RTGM",
+    "CITY_ID": "MALABE"
+  },
+  {
+    "SITE_ID": "s006",
+    "RELATED_COMPANY": "Other",
+    "OTHER_OPERATOR": "Hutch",
+    "TITLE_TYPE": "TD",
+    "ADDRESS_LINE_1": "567 Maple St",
+    "ADDRESS_LINE_2": "Apt 3C",
+    "GN_DEVISION": "Kandy",
+    "DEVISIONAL_SECRETARY": "Emma Brown",
+    "LOCAL_AUTHORITY_AREA": "Kandy Municipal Council",
+    "POLICE_STATION": "Katugastota",
+    "TOWER_HEIGHT": 51.6,
+    "OIC_NAME": "William Smith",
+    "OIC_CONTACT": "+98112233450",
+    "TOWER_TYPE": "GBT",
+    "CITY_ID": "GALLE"
+  }
+]
+
+
 
 module.exports = {
     activeSites,
     agreementsIds,
     cities,
-    agreementDb
+    agreementDb,
+    siteReqDb
 };

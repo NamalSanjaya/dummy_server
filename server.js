@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const { activeSites, agreementsIds, cities, agreementDb } = require("./data")
+const { activeSites, agreementsIds, cities, agreementDb, siteReqDb } = require("./data")
 
 app.use(express.json());
 
@@ -9,14 +9,13 @@ app.use(express.json());
 const landOwnerDb = []
 const payeeDb = []
 const commTermsDb = []
-const siteReqDb = []
 
 // Dummy Automatic increment IDs
 let agreementIdNo = agreementDb.length + 1
 let landOwnerNo = 1
 let payeeNo = 1
 let commeTermsNo = 1
-let siteReqNo = 1
+let siteReqNo = siteReqDb.length + 1
 
 // Site req
 app.get('/site-req/:siteId', (req, res) => {
