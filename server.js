@@ -1,17 +1,16 @@
 const express = require('express');
 const app = express();
-const { activeSites, agreementsIds, cities, agreementDb, siteReqDb, landOwnerDb } = require("./data")
+const { activeSites, agreementsIds, cities, agreementDb, siteReqDb, landOwnerDb, payeeDb } = require("./data")
 
 app.use(express.json());
 
 // Dummy dbs
-const payeeDb = []
 const commTermsDb = []
 
 // Dummy Automatic increment IDs
 let agreementIdNo = agreementDb.length + 1
 let landOwnerNo = landOwnerDb.length + 1
-let payeeNo = 1
+let payeeNo = payeeDb.length + 1
 let commeTermsNo = 1
 let siteReqNo = siteReqDb.length + 1
 
@@ -95,6 +94,12 @@ app.post('/landOwners', (req, res) => {
 });
 
 // Payee Resource
+app.get('/payees/agreements/:agrId', (req, res) => {
+    const agrId = parseInt(req?.params?.agrId, 10)
+    const payeeList = payeeDb.filter( payee => payee.AGREEMENT_ID === agrId )
+    res.send({data: payeeList, msg: "ok" });
+});
+
 app.get('/payees/:id', (req, res) => {
     const payeeId = parseInt(req?.params?.id, 10)
     const payeeInfo = payeeDb.find( payee => payee.PAYEE_ID === payeeId ) || {}
