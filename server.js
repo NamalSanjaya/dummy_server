@@ -1,18 +1,18 @@
 const express = require('express');
 const app = express();
-const { activeSites, agreementsIds, cities } = require("./data")
+const { activeSites, agreementsIds, cities, agreementDb } = require("./data")
 
 app.use(express.json());
 
 // Dummy dbs
-const agreementDb = []
+// const agreementDb = []
 const landOwnerDb = []
 const payeeDb = []
 const commTermsDb = []
 const siteReqDb = []
 
 // Dummy Automatic increment IDs
-let agreementIdNo = 1
+let agreementIdNo = agreementDb.length + 1
 let landOwnerNo = 1
 let payeeNo = 1
 let commeTermsNo = 1
@@ -37,6 +37,10 @@ app.get('/agreements/:id', (req, res) => {
     const agrId = parseInt(req?.params?.id, 10)
     const agreement = agreementDb.find( agr => agr.AGREEMENT_ID === agrId ) || {}
     res.send({data: agreement, msg: "Ok"});
+});
+
+app.get('/agreements', (req, res) => {
+    res.send({data: agreementDb, msg: "Ok"});
 });
 
 app.put('/agreements/:id', (req, res) => {
