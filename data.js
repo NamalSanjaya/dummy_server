@@ -313,6 +313,113 @@ const siteReqDb = [
   }
 ]
 
+const landOwnerDb = [
+  {
+    "OWNER_ID": 1,
+    "AGREEMENT_ID": 1,
+    "NAME": "John Doe",
+    "IS_OWNER": true,
+    "NIC_BRC_SELECTION": "NIC",
+    "NIC_BRC_NUMBER": "123456789V",
+    "ADDRESS": "123 Main St",
+    "CONTACT_RESIDENT": "+981122127272",
+    "CONTACT_MOBILE": "+981176432",
+    "NIC_BRC_COPY_APP_UID": 456789,
+    "CITY_ID": "MALABE"
+  },
+  {
+    "OWNER_ID": 2,
+    "AGREEMENT_ID": 1,
+    "NAME": "Alice Smith",
+    "IS_OWNER": false,
+    "NIC_BRC_SELECTION": "BRC",
+    "NIC_BRC_NUMBER": "BRC123456",
+    "ADDRESS": "456 Oak St",
+    "CONTACT_RESIDENT": "+981122334455",
+    "CONTACT_MOBILE": "+981176543",
+    "NIC_BRC_COPY_APP_UID": 987654,
+    "CITY_ID": "GALLE"
+  },
+  {
+    "OWNER_ID": 3,
+    "AGREEMENT_ID": 1,
+    "NAME": "Bob Johnson",
+    "IS_OWNER": true,
+    "NIC_BRC_SELECTION": "NIC",
+    "NIC_BRC_NUMBER": "987654321V",
+    "ADDRESS": "789 Elm St",
+    "CONTACT_RESIDENT": "+981122334466",
+    "CONTACT_MOBILE": "+981176654",
+    "NIC_BRC_COPY_APP_UID": 159753,
+    "CITY_ID": "KANDY"
+  },
+    {
+      "OWNER_ID": 4,
+      "AGREEMENT_ID": 3,
+      "NAME": "Emma Brown",
+      "IS_OWNER": true,
+      "NIC_BRC_SELECTION": "NIC",
+      "NIC_BRC_NUMBER": "456789012V",
+      "ADDRESS": "101 Pine St",
+      "CONTACT_RESIDENT": "+981122334477",
+      "CONTACT_MOBILE": "+981176765",
+      "NIC_BRC_COPY_APP_UID": 357159,
+      "CITY_ID": "COLOMBO"
+    },
+    {
+      "OWNER_ID": 5,
+      "AGREEMENT_ID": 3,
+      "NAME": "David Lee",
+      "IS_OWNER": false,
+      "NIC_BRC_SELECTION": "BRC",
+      "NIC_BRC_NUMBER": "BRC987654",
+      "ADDRESS": "234 Cedar St",
+      "CONTACT_RESIDENT": "+981122334488",
+      "CONTACT_MOBILE": "+981176876",
+      "NIC_BRC_COPY_APP_UID": 951753,
+      "CITY_ID": "KANDY"
+    },
+    {
+      "OWNER_ID": 6,
+      "AGREEMENT_ID": 2,
+      "NAME": "Emily Taylor",
+      "IS_OWNER": true,
+      "NIC_BRC_SELECTION": "NIC",
+      "NIC_BRC_NUMBER": "654321098V",
+      "ADDRESS": "567 Maple St",
+      "CONTACT_RESIDENT": "+981122334499",
+      "CONTACT_MOBILE": "+981176987",
+      "NIC_BRC_COPY_APP_UID": 753951,
+      "CITY_ID": "GALLE"
+    },
+    {
+      "OWNER_ID": 7,
+      "AGREEMENT_ID": 2,
+      "NAME": "Jack Johnson",
+      "IS_OWNER": false,
+      "NIC_BRC_SELECTION": "BRC",
+      "NIC_BRC_NUMBER": "BRC123123",
+      "ADDRESS": "890 Oak St",
+      "CONTACT_RESIDENT": "+981122334400",
+      "CONTACT_MOBILE": "+981177098",
+      "NIC_BRC_COPY_APP_UID": 159357,
+      "CITY_ID": "MALABE"
+    },
+    {
+      "OWNER_ID": 8,
+      "AGREEMENT_ID": 4,
+      "NAME": "Sophia Brown",
+      "IS_OWNER": true,
+      "NIC_BRC_SELECTION": "NIC",
+      "NIC_BRC_NUMBER": "987654321V",
+      "ADDRESS": "111 Elm St",
+      "CONTACT_RESIDENT": "+981122334411",
+      "CONTACT_MOBILE": "+981177109",
+      "NIC_BRC_COPY_APP_UID": 357951,
+      "CITY_ID": "KANDY"
+    }
+  
+]
 
 
 module.exports = {
@@ -320,5 +427,6 @@ module.exports = {
     agreementsIds,
     cities,
     agreementDb,
-    siteReqDb
+    siteReqDb,
+    landOwnerDb
 };

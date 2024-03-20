@@ -1,18 +1,16 @@
 const express = require('express');
 const app = express();
-const { activeSites, agreementsIds, cities, agreementDb, siteReqDb } = require("./data")
+const { activeSites, agreementsIds, cities, agreementDb, siteReqDb, landOwnerDb } = require("./data")
 
 app.use(express.json());
 
 // Dummy dbs
-// const agreementDb = []
-const landOwnerDb = []
 const payeeDb = []
 const commTermsDb = []
 
 // Dummy Automatic increment IDs
 let agreementIdNo = agreementDb.length + 1
-let landOwnerNo = 1
+let landOwnerNo = landOwnerDb.length + 1
 let payeeNo = 1
 let commeTermsNo = 1
 let siteReqNo = siteReqDb.length + 1
@@ -43,7 +41,6 @@ app.get('/agreements/:id', (req, res) => {
     const agreement = agreementDb.find( agr => agr.AGREEMENT_ID === agrId ) || {}
     res.send({data: agreement, msg: "Ok"});
 });
-
 
 app.put('/agreements/:id', (req, res) => {
     let reqBody = req.body || {};
@@ -77,6 +74,12 @@ app.post('/agreements', (req, res) => {
 });
 
 // Land Owner Resource
+app.get('/landOwners/agreements/:agrId', (req, res) => {
+    const agrId = parseInt(req?.params?.agrId, 10)
+    const ownerList = landOwnerDb.filter( owner => owner.AGREEMENT_ID === agrId )
+    res.send({data: ownerList, msg: "Ok"});
+});
+
 app.get('/landOwners/:id', (req, res) => {
     const ownerId = parseInt(req?.params?.id, 10)
     const ownerInfo = landOwnerDb.find( owner => owner.OWNER_ID === ownerId ) || {}
