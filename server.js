@@ -111,7 +111,8 @@ app.post('/payees', (req, res) => {
     payee.PAYEE_ID = payeeNo
     payeeNo++
     payeeDb.push(payee)
-    res.send({msg: "ok", data: { id: payee.PAYEE_ID } });
+    console.log("payee: ", payee)
+    res.send({msg: "ok", data: payee });
 });
 
 // Commerial Terms Resource
