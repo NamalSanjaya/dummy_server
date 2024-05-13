@@ -115,6 +115,13 @@ app.post('/payees', (req, res) => {
     res.send({msg: "ok", data: payee });
 });
 
+app.put('/payees/:id', (req, res) => {
+    const payeeId = parseInt(req?.params?.id, 10)
+    const payee = req.body || {};
+    console.log("payee PUT: ", payee, "payeeId: ", payeeId)
+    res.send({msg: "ok", data: payee, payeeId: payeeId });
+});
+
 // Commerial Terms Resource
 app.get('/comm-terms/:id', (req, res) => {
     const agreementId = parseInt(req?.params?.id, 10)
