@@ -67,6 +67,7 @@ app.put('/agreements/:id', (req, res) => {
 app.post('/agreements', (req, res) => {
     let agr = req.body || {};
     agr.AGREEMENT_ID = agreementIdNo
+    console.log("my-agr: ", agr)
     agreementIdNo++
     agreementDb.push(agr)
     res.send({msg: "ok", data: { id: agr.AGREEMENT_ID }});
